@@ -1,0 +1,13 @@
+createTable person 4 id INTEGER name STRING weight FLOATING birthday DATE
+createTable person 4 id INTEGER name STRING weight FLOATING weight STRING
+createTable person 3 id INTEGER name STRING weight FLOATING birthday STRING
+createTable person 4 id INTEGER name STRING weight FLOATING birthday STRING
+createTable person 4 id INTEGER name STRING weight FLOATING birthday STRING
+showTableList
+insert into Person 1 ABC 77.8 2000/01/09
+insert into person 1 ABC 77.8 2000/01/09
+insert into person 2 DEF 67.3 2001/02/19
+insert into person 3 GH 66.6 2001/06/10
+showTableContent person
+exit
+
