@@ -25,12 +25,12 @@ int main() {
                 }
             }
         }
-//        for (int y = 0; y <= p; ++y) {
-//            for (int x = 0; x <= n; ++x) {
-//                cout << dp[y][x] << " ";
-//            }
-//            cout << endl;
-//        }
+        for (int y = 0; y <= p; ++y) {
+            for (int x = 0; x <= n; ++x) {
+                cout << dp[y][x] << " ";
+            }
+            cout << endl;
+        }
         cout << ((dp[p][n] == n) ? "YES\n" : "NO\n");
 
     }
