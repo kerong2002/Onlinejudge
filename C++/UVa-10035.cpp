@@ -1,44 +1,46 @@
-//2023/04/19
-#include <iostream>
-#include <cstring>
+#include <bits/stdc++.h>
+
 using namespace std;
-int main(){
-	string a, b;
-	while(cin >> a >> b){
-		if(stoi(a) == 0 && stoi(b) == 0){
-			break;
-		}
-		int carry = 0;
-		int ans = 0;
-		int f = a.size()-1;
-		int s = b.size()-1;
-		while(f>=0 || s>=0 || carry>0){
-            int f_num = 0;
-            int s_num = 0;
-            if(f>=0){
-                f_num = a[f]-'0';
+int main() {
+
+    string n1, n2;
+    while (cin >> n1 >> n2) {
+        if (n1.size() == 1 && n2.size() == 1 && n1[0] == '0' && n2[0] == '0') {
+            break;
+        }
+
+        int carry = 0;
+        int r1 = n1.size() - 1;
+        int r2 = n2.size() - 1;
+        int ans = 0;
+
+        while (r1 >= 0 || r2 >= 0 || carry > 0) {
+            int num1 = 0;
+            int num2 = 0;
+            if (r1 >= 0) {
+                num1 = n1[r1--] - '0';
             }
-            if(s>=0){
-                s_num = b[s]-'0';
+            if (r2 >= 0) {
+                num2 = n2[r2--] - '0';
             }
-
-
-
-            if(carry > 0){
+            carry = (num1 + num2 + carry) / 10;
+            if (carry) {
                 ans += 1;
             }
-            carry = (f_num + s_num + carry)/10;
-            f--;
-            s--;
-		}
-		if(ans){
-            cout << ans;
-		}
-		else{
-            cout << "No";
-		}
-		cout << " carry operation";
-		cout << (ans > 1 ? "s." : ".") << endl;
-	}
-	return 0;
+        }
+
+        if (ans) {
+            if (ans == 1) {
+                cout << "1 carry operation.\n";
+            }
+            else {
+                cout << ans << " carry operations.\n";
+            }
+        }
+        else {
+            cout << "No carry operation.\n";
+        }
+
+    }
+    return 0;
 }

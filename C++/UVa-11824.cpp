@@ -1,39 +1,48 @@
-//2023/04/19 kerong
-#include <iostream>
-#include <algorithm>
-#include <cmath>
-#define MAX_MONEY 5000000
+#include <bits/stdc++.h>
+
+#define MAX_VALUE 5000000
+
 using namespace std;
-int main(){
-    int T = 0;
-    cin >> T;
-    while(T--){
-        long long int total = 0;
-        int land[41] = {0};
-        int cnt = 0;
-        while(true){
-            cin >> land[cnt];
-            if(land[cnt]==0){
+
+bool compare(int a, int b) {
+	return a > b;
+}
+int main() {
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	int t = 0;
+	int L = 0;
+
+	cin >> t;
+	while (t--) {
+
+
+		vector<int> line;
+		while (true) {
+			cin >> L;
+			if (L == 0) {
+				break;
+			}
+			line.push_back(L);
+		}
+
+		sort(line.begin(), line.end(), compare);
+		int ans = 0;
+		int bonus = 1;
+		for (int x = 0; x < line.size(); ++x) {
+            if (ans >= MAX_VALUE) {
                 break;
             }
-            else{
-                cnt++;
-            }
-        }
-        sort(land, land + cnt, greater<int>());
-        for(int x=0;x<cnt;x++){
-            if(total >= MAX_MONEY){
-               break;
-            }
-            total += 2 * (int)pow(land[x],x+1);
+			ans += 2 * static_cast<int> (pow(line[x], bonus++));
+		}
 
-        }
-        if(total >= MAX_MONEY){
-            cout << "Too expensive" << endl;
-        }
-        else{
-            cout << total << endl;
-        }
-    }
-    return 0;
+		if (ans < MAX_VALUE) {
+			cout << ans << endl;
+		}
+		else {
+			cout << "Too expensive" << endl;
+		}
+
+	}
+	return 0;
 }

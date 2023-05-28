@@ -1,31 +1,28 @@
-//2023/04/19 kerong
-#include <iostream>
-#include <stack>
+#include <bits/stdc++.h>
 using namespace std;
-int main(){
-    int T = 0;
-    cin >> T;
-    stack<string> s;
-    while(T--){
-        string oper;
-        cin >> oper;
-        if(oper == "Sleep"){
-            string name;
-            cin >> name;
-            s.push(name);
-        }
-        else if(oper == "Test"){
-            if(!s.empty()){
-                cout << s.top() << endl;
+int main() {
+    int n = 0;
+    stack<string> s1;
+    cin >> n;
+    while (n--) {
+        string line;
+        cin >> line;
+        if (line == "Test") {
+            if (s1.size()) {
+                cout << s1.top() << endl;
             }
-            else{
+            else {
                 cout << "Not in a dream" << endl;
             }
         }
-        else if(oper == "Kick"){
-            if(!s.empty()){
-                s.pop();
+        else if (line == "Kick") {
+            if(s1.size()) {
+                s1.pop();
             }
+        }
+        else if (line == "Sleep") {
+            cin >> line;
+            s1.push(line);
         }
     }
     return 0;
