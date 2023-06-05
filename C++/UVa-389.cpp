@@ -44,7 +44,7 @@ int main() {
             for (int x = ans.size(); x<7; ++x) {
                 cout << " ";
             }
-            for (int x = ans.size() - 1; x>=0; --x){
+            for (int x = ans.size() - 1; x>=0; --x) {
                 cout << ans[x];
             }
             cout << endl;

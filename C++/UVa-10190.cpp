@@ -9,7 +9,7 @@ int main() {
     while (cin >> n >> m) {
         bool not_true = false;
         vector<int> ans(1, n);
-        if(n==0 || m==0 || m==1 || n<m){
+        if(n==0 || m==0 || m==1 || n<m) {
             cout << "Boring!" << endl;
             continue;
         }
